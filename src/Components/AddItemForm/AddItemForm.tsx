@@ -7,15 +7,10 @@ type AddItemFormPropsType = {
 export const AddItemForm = (props: AddItemFormPropsType) => {
 
     let [title, setTitle] = useState("")
-    let [error, setError] = useState<string | null>(null)
 
     const addItem = () => {
-        if (title.trim() !== "") {
-            props.addItem(title);
-            setTitle("");
-        } else {
-            setError("Title is required");
-        }
+        props.addItem(title);
+        setTitle("");
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,17 +18,13 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (error !== null) {
-            setError(null);
-        }
         if (e.charCode === 13) {
             addItem();
         }
     }
+    return <input type="text"
+                  placeholder={'What needs to be done?'}
+                  value={title} onChange={onChangeHandler}
+                  onKeyPress={onKeyPressHandler}/>
 
-
-    return <div>
-        <input type="text" placeholder={'What needs to be done?'} value={title} onChange={onChangeHandler}
-               onKeyPress={onKeyPressHandler}/>
-    </div>
 }

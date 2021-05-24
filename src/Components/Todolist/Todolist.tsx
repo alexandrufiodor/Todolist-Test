@@ -29,20 +29,20 @@ export const Todolist = () => {
         <div className={s.tasks_list}>
             {
                 tasks.map(t => {
-                        return <Task key={t.id} task={t} removeTask={() => dispatch(removeTaskAC(t.id))}
+                        return <Task key={t.id}
+                                     task={t}
+                                     removeTask={() => dispatch(removeTaskAC(t.id))}
                                      changeTaskStatus={() => dispatch(changeTaskStatusAC(t.id, !t.isDone))}/>
                     }
                 )
-
             }
         </div>
-        <div>
-            { tasks.length  > 0   && <div className={s.footer}>
-                {tasks.length} items  lefts
-                </div>}
 
+        {tasks.length > 0 &&
+        <div className={s.footer}>
+            {tasks.length} items lefts
         </div>
-
+        }
 
     </div>
 }
