@@ -36,7 +36,7 @@ export const tasksReducer = (state = initialState, action: ActionType): TasksSta
         case 'CHANGE-TASK-STATUS': {
             let stateCopy =[...state]
             let tasks = stateCopy
-            stateCopy = tasks.map( (t: TaskType) => t.id === action.taskId ? {...t, isDone: action.isDone} : t) 
+            stateCopy = tasks.map( (t: TaskType) => t.id === action.taskId ? {...t, isDone: action.isDone} : t)
             return stateCopy
         }
         default:
