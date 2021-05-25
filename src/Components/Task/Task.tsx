@@ -9,11 +9,11 @@ type TaskPropsType = {
 }
 
 export const Task = (props: TaskPropsType) => {
-    let [remove, setRemove] = useState(true)
+    let [remove, setRemove] = useState(false)
 
     return <div className={s.task}
                 onMouseEnter={() => setRemove(true)}
-                onMouseLeave={() => setRemove(true)}>
+                onMouseLeave={() => setRemove(false)}>
 
         <input type="checkbox"
                className={s.isDone_input}
